@@ -1,0 +1,65 @@
+<div id="login" style="max-width:420px;margin:24px auto;padding:24px;border:1px solid #d9d9d9;border-radius:12px;background:#ffffff;font-family:Arial, Helvetica, sans-serif;color:#111;">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;">
+    <h2 style="margin:0;font-size:18px;letter-spacing:0.4px;">Accredited Member Login</h2>
+    <span style="font-size:12px;padding:4px 8px;border:1px solid #e5e5e5;border-radius:999px;background:#fafafa;color:#333;">
+      Placeholder
+    </span>
+  </div>
+
+  <p style="margin:0 0 18px 0;font-size:12.5px;line-height:1.45;color:#444;">
+    This page displays a non-functional login interface for demonstration purposes. No credentials are collected or transmitted.
+  </p>
+
+  <label style="display:block;font-size:12px;margin-bottom:6px;color:#222;">Username</label>
+  <input id="dl-username" type="text" autocomplete="off"
+    style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #cfcfcf;border-radius:10px;font-size:14px;outline:none;"
+    placeholder="Enter username" />
+
+  <div style="height:12px;"></div>
+
+  <label style="display:block;font-size:12px;margin-bottom:6px;color:#222;">Password</label>
+  <input id="dl-password" type="password" autocomplete="off"
+    style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #cfcfcf;border-radius:10px;font-size:14px;outline:none;"
+    placeholder="Enter password" />
+
+  <div style="height:14px;"></div>
+
+  <button id="dl-submit" type="button"
+    style="width:100%;padding:10px 12px;border:1px solid #111;border-radius:10px;background:#111;color:#fff;font-size:14px;cursor:pointer;">
+    Sign in
+  </button>
+
+  <div id="dl-error"
+    style="display:none;margin-top:14px;padding:10px 12px;border:1px solid #f1b9b9;border-radius:10px;background:#fff5f5;color:#8a1f1f;font-size:13px;">
+    Invalid credentials.
+  </div>
+
+  <div style="margin-top:14px;font-size:12px;color:#666;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+    <span>Access level: Accredited</span>
+    <span style="opacity:0.9;">Session: Not established</span>
+  </div>
+
+  <script>
+    (function () {
+      var submit = document.getElementById('dl-submit');
+      var user = document.getElementById('dl-username');
+      var pass = document.getElementById('dl-password');
+      var error = document.getElementById('dl-error');
+
+      function showInvalid() {
+        error.style.display = 'block';
+        pass.value = '';
+      }
+
+      submit.addEventListener('click', function () {
+        showInvalid();
+      });
+
+      [user, pass].forEach(function (el) {
+        el.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') showInvalid();
+        });
+      });
+    })();
+  </script>
+</div>
